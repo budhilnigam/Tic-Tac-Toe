@@ -4,8 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [player, setPlayer] = useState(1)
+  const [tiles,setTiles] = useState([[0,0,0],[0,0,0],[0,0,0]]);
   return (
     <div id="container">
       <span>
@@ -21,6 +21,7 @@ function App() {
       <button></button>
       <button></button>
       </span>
+      <span></span>
     </div>
   )
 }
