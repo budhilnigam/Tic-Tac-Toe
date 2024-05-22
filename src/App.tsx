@@ -21,7 +21,13 @@ function App() {
       <button></button>
       <button></button>
       </span>
-      <span></span>
+      <div id="cross">
+        <div id ="line1"></div>
+        <div id ="line2"></div>
+      </div>
+      <div id="circle">
+
+      </div>
     </div>
   )
 }
