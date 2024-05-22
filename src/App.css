@@ -33,5 +33,21 @@
 }
 
 #cross {
-  
+  width:var(--size);
+  height:var(--size);
+  background-color: #000000;  
+}
+
+#line1 {
+  width:var(--size);
+  height:2px;
+  background-color: #ff0000;
+  rotate: 45deg;
+}
+
+#line2 {
+  width:var(--size);
+  height:2px;
+  background-color: #ff0000;
+  rotate: -45deg;
 }
