@@ -14,6 +14,7 @@
   align-items: center;
   padding:2px;
   gap: 2px;
+  border:2px solid black;
 }
 
 #container > span {
@@ -25,29 +26,49 @@
 #container > span > button {
   width:var(--size);
   height:var(--size);
+  padding: 0px;
+  
 }
 
 #container> span>button:hover {
-  background-color: yellow;
+  background-color: black;
   box-shadow: yellow 0 0 10px;
-}
-
-#cross {
-  width:var(--size);
-  height:var(--size);
-  background-color: #000000;  
-}
-
-#line1 {
-  width:var(--size);
-  height:2px;
-  background-color: #ff0000;
-  rotate: 45deg;
-}
-
-#line2 {
-  width:var(--size);
-  height:2px;
-  background-color: #ff0000;
-  rotate: -45deg;
+  #cross {
+    width:var(--size);
+    height:var(--size);
+    display: flexbox;
+    position: relative;
+  }
+  
+  #line1 {
+    width:var(--size);
+    height:4px;
+    background-color: #ff0000;
+    rotate: 45deg;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    box-shadow: red 0 0 10px;
+  }
+  
+  #line2 {
+    width:var(--size);
+    height:4px;
+    background-color: #ff0000;
+    rotate: -45deg;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    box-shadow: red 0 0 10px;
+  }
+  
+  #circle {
+    width:calc(var(--size) - 16px);
+    height:calc(var(--size) - 16px);
+    border-radius: 50%;
+    border:3px solid #0000ff;
+    box-shadow: blue 0 0 10px;
+    box-sizing: border-box;
+    margin:auto;     
+  }
 }
