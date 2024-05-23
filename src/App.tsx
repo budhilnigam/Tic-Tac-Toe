@@ -1,28 +1,42 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
   const [player, setPlayer] = useState(1)
   const [tiles,setTiles] = useState([[0,0,0],[0,0,0],[0,0,0]]);
-  function handleClick(){
+  function handleClick(index:number,i:number){
+    setTiles((state)=>{state[index][i]=player;return state;});
+    setPlayer((player)%2+1);
   }
+  useEffect(()=>{
+    setTiles((state)=>state);
+  },[tiles])
   return (
     <>
-    <button onClick={()=>setPlayer((player+1)%2)}>Change player</button>
+    <button onClick={()=>setTiles([[0,0,0],[0,0,0],[0,0,0]])}>Restart</button>
+    <button onClick={()=>setPlayer((player)%2+1)}>Change player</button>
+    <p>Player {player}</p>
     <div id="container">
-      {tiles.map((tile,index)=>{
+      {tiles.map((row,index)=>{
         return <span key={'row'+index}>
-          {tile.map((t)=>
-          <button key={'tile'+t}>
-            {player==0?<div id='cross'>
-              <div id='line1'></div>
-              <div id='line2'></div>
-            </div>:
-            <div id='circle'>
-            </div>}
+          {row.map((tile,i)=>
+          <button key={'tile'+i} className={tile==0?'inactive-tile':tile==1?'cross-tile':'circle-tile'} onClick={()=>handleClick(index,i)} >
+            {tile!=0?<><div className='cross'>
+              <div className='line1'></div>
+              <div className='line2'></div>
+            </div>
+            <div className='circle'>
+            </div></>:player==1?
+            <div className='cross'>
+              <div className='line1'></div>
+              <div className='line2'></div>
+            </div>:<div className='circle'></div>}
           </button>)}
         </span>
       })}
+    </div>
+    <div>
+      {tiles}
     </div>
     </>
   )

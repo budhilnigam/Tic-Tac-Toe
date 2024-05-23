@@ -23,24 +23,28 @@
   gap: 2px;
 }
 
-#container > span > button {
+#container>span>button {
   width:var(--size);
   height:var(--size);
-  padding: 0px;
-  
+  padding: 0px;  
 }
 
-#container> span>button:hover {
+#container>span>button:focus {
+  outline: none;
+  border: none; 
+}
+
+.inactive-tile:hover {
   background-color: black;
   box-shadow: yellow 0 0 10px;
-  #cross {
+  .cross {
     width:var(--size);
     height:var(--size);
     display: flexbox;
     position: relative;
   }
   
-  #line1 {
+  .line1 {
     width:var(--size);
     height:4px;
     background-color: #ff0000;
@@ -51,7 +55,7 @@
     box-shadow: red 0 0 10px;
   }
   
-  #line2 {
+  .line2 {
     width:var(--size);
     height:4px;
     background-color: #ff0000;
@@ -62,7 +66,54 @@
     box-shadow: red 0 0 10px;
   }
   
-  #circle {
+  .circle {
+    width:calc(var(--size) - 16px);
+    height:calc(var(--size) - 16px);
+    border-radius: 50%;
+    border:3px solid #0000ff;
+    box-shadow: blue 0 0 10px;
+    box-sizing: border-box;
+    margin:auto;     
+  }
+}
+
+.cross-tile {
+  background-color: black;
+  pointer-events: none;
+  .cross {
+    width:var(--size);
+    height:var(--size);
+    display: flexbox;
+    position: relative;
+  }
+  
+  .line1 {
+    width:var(--size);
+    height:4px;
+    background-color: #ff0000;
+    rotate: 45deg;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    box-shadow: red 0 0 10px;
+  }
+  
+  .line2 {
+    width:var(--size);
+    height:4px;
+    background-color: #ff0000;
+    rotate: -45deg;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    box-shadow: red 0 0 10px;
+  }
+}
+
+.circle-tile {
+  background-color: black;
+  pointer-events: none;
+  .circle {
     width:calc(var(--size) - 16px);
     height:calc(var(--size) - 16px);
     border-radius: 50%;
